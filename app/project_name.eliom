@@ -14,7 +14,7 @@ let%server () =
   Eliom_config.set_enable_wasm true
 
 (* Create a module for the application. See
-   https://ocsigen.org/eliom/manual/clientserver-applications for more
+   https://ocsigen.org/eliom/latest/clientserver/applications.html for more
    information. *)
 module%shared App = Eliom_registration.App (struct
     let application_name = application_name
