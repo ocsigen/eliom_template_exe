@@ -6,6 +6,7 @@ let rundir = "local/var/run"
 let staticdir = "local/var/www/project_name"
 
 let () =
+  Ocsipersist_settings.set_db_file (datadir ^ "/project_name_db");
   Ocsigen_server.start
     ~ports:[`All, 8080]
     ~veryverbose:() ~debugmode:true ~logdir ~uploaddir:(Some "/tmp")
