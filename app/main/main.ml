@@ -6,10 +6,11 @@ let rundir = "local/var/run"
 let staticdir = "local/var/www/project_name"
 
 let () =
-  Ocsigen_server.start
+  Ocsipersist_settings.set_db_file (datadir ^ "/project_name_db");
+  Ocsigen.Server.start
     ~ports:[`All, 8080]
     ~veryverbose:() ~debugmode:true ~logdir ~uploaddir:(Some "/tmp")
     ~usedefaulthostname:true
     ~command_pipe:(Filename.concat rundir "project_name-cmd")
     ~default_charset:(Some "utf-8")
-    [Ocsigen_server.host [Staticmod.run ~dir:staticdir (); Eliom.run ()]]
+    [Ocsigen.Server.host [Staticmod.run ~dir:staticdir (); Eliom.App.run ()]]

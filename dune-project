@@ -12,13 +12,11 @@
  (depends
   ocsigen-dune-rules
   (eliom
-   (and
-    (>= 12.0.0)
-    (< 13.0.0)))
+   (>= 13.0.0))
+  (ocsigen-ppx-rpc
+   (>= 2.0))
   (ocsipersist-sqlite-config
-   (and
-    (>= 2.0)
-    (< 3.0)))))
+   (>= 3.1))))
 
 (dialect
  (name "eliom-server")
